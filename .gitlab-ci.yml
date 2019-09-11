@@ -1,0 +1,9 @@
+
+image: node:latest
+
+build:
+  script:
+    - npm install
+    - npm install -g gatsby-cli
+    - gatsby build
+
