@@ -11,6 +11,18 @@ git push -u origin --all
 ```
 - Build `gatsby build`
 
+
+## CI/CD
+```yml
+image: node:latest
+build:
+  script:
+    - npm install
+    - npm install -g gatsby-cli
+    - gatsby build
+```
+
+
 ## Bugs
 > zsh: command not found: gatsby
 ```sh
