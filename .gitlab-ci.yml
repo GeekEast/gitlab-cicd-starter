@@ -1,13 +1,16 @@
+stages:
+  - build
+  - test
 
 image: node:latest
-
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
 
-build:
+build into public folder:
+  stage: build
   script:
     - npm install
     - npm install -g gatsby-cli
@@ -15,4 +18,11 @@ build:
   artifacts:
     paths:
       - public
+
+
+test artifact:
+  stage: test
+  script:
+    - grep "Gatsby" ./public/index.html
+
 

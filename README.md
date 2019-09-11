@@ -13,13 +13,41 @@ git push -u origin --all
 
 
 ## CI/CD
+#### Build
 ```yml
 image: node:latest
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
 build:
   script:
     - npm install
     - npm install -g gatsby-cli
     - gatsby build
+  artifacts:
+    paths:
+      - public
+```
+#### Test
+```yml
+image: node:latest
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+build:
+  script:
+    - npm install
+    - npm install -g gatsby-cli
+    - gatsby build
+  artifacts:
+    paths:
+      - public
 ```
 
 
