@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - deploy
 
 image: node:latest
 
@@ -35,6 +36,13 @@ test website:
     - gatsby serve & # run in background, non-blocking way
     - sleep 3
     - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby"
+
+delpoy website:
+  stage: deploy
+  script:
+    - npm install -g surge
+    - surge --project ./public --domain chicuti.surge.sh
+
 
 
 
