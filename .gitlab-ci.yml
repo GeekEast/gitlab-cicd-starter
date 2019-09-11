@@ -33,6 +33,7 @@ test website:
     - npm install
     - npm install -g gatsby-cli
     - gatsby serve & # run in background, non-blocking way
+    - sleep 3
     - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby"
 
 
