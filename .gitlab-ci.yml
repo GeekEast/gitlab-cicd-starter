@@ -18,7 +18,7 @@ build into public folder:
   artifacts:
     paths:
       - ./public
-      - ./.cacge
+      - ./.cache
 
 
 test artifact:
@@ -32,7 +32,8 @@ test website:
   script:
     - npm install
     - npm install -g gatsby-cli
-    - gatsby serve
+    - gatsby serve & # run in background, non-blocking way
+    - curl "http://localhost:9000" | grep -q "Gatsby"
 
 
 
