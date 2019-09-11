@@ -21,8 +21,9 @@ build into public folder:
 
 
 test artifact:
+  image: alpine
   stage: test
   script:
-    - grep "Gatsby" ./public/index.html
+    - grep -q "Gatsby" ./public/index.html
 
 
