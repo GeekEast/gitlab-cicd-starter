@@ -17,7 +17,8 @@ build into public folder:
     - gatsby build
   artifacts:
     paths:
-      - public
+      - ./public
+      - ./.cacge
 
 
 test artifact:
@@ -25,5 +26,13 @@ test artifact:
   stage: test
   script:
     - grep -q "Gatsby" ./public/index.html
+
+test website:
+  stage: test
+  script:
+    - npm install
+    - npm install -g gatsby-cli
+    - gatsby serve
+
 
 
