@@ -41,12 +41,18 @@ test website:
 
 delpoy to staging:
   stage: deploy staging
+  environment:
+    name: staging
+    url: http://chicuti-staging.surge.sh
   script:
     - npm install -g surge
     - surge --project ./public --domain chicuti-staging.surge.sh
 
 delpoy to surge:
   stage: deploy production
+  environment:
+    name: production
+    url: http://chicuti.surge.sh
   script:
     - npm install -g surge
     - surge --project ./public --domain chicuti.surge.sh
