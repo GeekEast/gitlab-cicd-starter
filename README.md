@@ -12,43 +12,7 @@ git push -u origin --all
 - Build `gatsby build`
 
 
-## CI/CD
-#### Build
-```yml
-image: node:latest
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - node_modules/
-
-build:
-  script:
-    - npm install
-    - npm install -g gatsby-cli
-    - gatsby build
-  artifacts:
-    paths:
-      - public
-```
-#### Test
-```yml
-image: node:latest
-
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - node_modules/
-
-build:
-  script:
-    - npm install
-    - npm install -g gatsby-cli
-    - gatsby build
-  artifacts:
-    paths:
-      - public
-```
 
 
 ## Bugs
@@ -58,3 +22,6 @@ npm config delete prefix
 npm config set prefix /usr/local
 npm i -g gatsby-cli
 ```
+
+## Reference
+[Predefined Environment Variables](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html)
