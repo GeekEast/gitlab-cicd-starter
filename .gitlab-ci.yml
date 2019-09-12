@@ -1,8 +1,9 @@
 stages:
   - build
   - test
-  - deploy
-  - deploy test
+  - deploy staging
+  - deploy production
+  - production test
 
 image: node:latest
 
@@ -38,14 +39,20 @@ test website:
     - sleep 3 # for the server to start
     - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby" # block running by tac
 
+delpoy to staging:
+  stage: deploy staging
+  script:
+    - npm install -g surge
+    - surge --project ./public --domain chicuti-staging.surge.sh
+
 delpoy to surge:
-  stage: deploy
+  stage: deploy production
   script:
     - npm install -g surge
     - surge --project ./public --domain chicuti.surge.sh
 
 test deployment:
-  stage: deploy test
+  stage: production test
   image: alpine
   script:
     - apk add --no-cache curl

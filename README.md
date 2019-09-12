@@ -11,7 +11,9 @@ git push -u origin --all
 ```
 - Build `gatsby build`
 
-
+## Deployment
+- surge
+  - set env `SURGE_LOGIN` and `SURGE_TOKEN` in `Gitlab > Settings > CI/CD > Variables`
 
 
 
